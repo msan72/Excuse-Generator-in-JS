@@ -1,35 +1,37 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="./assets/img/4geeks.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Excuse Generator</title>
+</head>
+<body>
+  <h1 id="excuse"></h1>
+  <button onclick="mostrarExcusa()">Generate a new excuse</button>
 
-    <!-- Fontawesome is our recomended library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- Write your HTML code here, you can delete everything withing the body tags -->
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./assets/img/rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
-    </div>
+  <script>
+    // Listas de frases posibles
+    let who = ['El perro', 'Mi abuela', 'El cartero', 'Mi pájaro'];
+    let action = ['se comió', 'se orinó en', 'aplastó', 'rompió'];
+    let what = ['mi tarea', 'mi teléfono', 'el coche'];
+    let when = ['antes de la clase', 'mientras dormía', 'cuando estaba haciendo ejercicio', 'durante mi almuerzo', 'mientras rezaba'];
 
-    <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
-    <script type="module" src="/app.js"></script>
-  </body>
+    // Función que genera una excusa al azar
+    function generarExcusa() {
+      let randomWho = who[Math.floor(Math.random() * who.length)];
+      let randomAction = action[Math.floor(Math.random() * action.length)];
+      let randomWhat = what[Math.floor(Math.random() * what.length)];
+      let randomWhen = when[Math.floor(Math.random() * when.length)];
+
+      return randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen;
+    }
+
+    // Función que muestra la excusa en el HTML
+    function mostrarExcusa() {
+      document.getElementById("excuse").innerHTML = generarExcusa();
+    }
+
+    // Evento que ejecuta automáticamente la pagina
+    window.onload = mostrarExcusa;
+  </script>
+</body>
 </html>
